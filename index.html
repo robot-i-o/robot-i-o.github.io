@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="RIO: Flexible Real-time Robot I/O for Cross-Embodiment Robot Learning">
+  <meta name="keywords"
+    content="Robotics, Cross-Embodiment, Robot Learning, VLA, Robot Infrastructure, Real-time Control">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RIO: Flexible Real-time Robot I/O for Cross-Embodiment Robot Learning</title>
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://kit.fontawesome.com/19914a84eb.js" crossorigin="anonymous"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <!-- ======== HERO ======== -->
+  <section class="hero is-link is-fullheight video" style="overflow: hidden; position:relative;">
+    <div class="hero-video" style="height: 100%; width: 177.77777778vh; min-width: 100%; min-height: 56.25vw;">
+      <video playsinline autoplay muted loop>
+        <source src="./static/videos/overview.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="overlay"></div>
+
+    <!-- Navbar -->
+    <div class="hero-head is-hidden-mobile">
+      <header class="navbar">
+        <div class="container is-size-5">
+          <div class="navbar-menu">
+            <div class="navbar-end">
+              <a class="navbar-item pl-4 pr-4" href="https://github.com/robot-i-o/rio">
+                <span class="icon" style="margin-right:5px;">
+                  <svg aria-hidden="true" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    stroke-width="1.6" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
+                    </path>
+                  </svg>
+                </span>
+                <span>Code (Coming Soon)</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+
+    <!-- Hero body -->
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title is-1 publication-title is-size-1-mobile" style="font-size: 12rem; color: white;">
+          RIO
+        </h1>
+        <h1 class="subtitle is-2 publication-title is-size-4-mobile" style="font-size: 2.5rem; color: white;">
+          Flexible Real-time Robot I/O for<br class="is-hidden-mobile"> Cross-Embodiment Robot Learning
+        </h1>
+
+        <!-- Mobile links -->
+        <div class="is-hidden-tablet" style="margin-top: 1.5rem;">
+          <a href="https://github.com/robot-i-o/rio" class="rio-button">
+            <svg aria-hidden="true" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+              stroke-width="1.6" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path
+                d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
+              </path>
+            </svg>
+            Code
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation tabs -->
+    <div class="hero-foot is-hidden-mobile">
+      <nav class="tabs is-boxed is-fullwidth is-size-5">
+        <ul>
+          <li><a href="#abstract">Abstract</a></li>
+          <li><a href="#rio">RIO</a></li>
+          <li><a href="#results">Results</a></li>
+          <li><a href="#team">Team</a></li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+
+
+  <!-- ======== 1. ABSTRACT ======== -->
+  <section class="section is-medium" id="abstract">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="subtitle is-3 has-text-centered is-hidden-mobile">
+            Cross-embodiment robot learning is bottlenecked by <b>fragmented infrastructure</b>,
+            not just limited data.
+          </h2>
+          <p class="is-size-5 has-text-centered is-hidden-tablet">
+            Cross-embodiment robot learning is bottlenecked by <b>fragmented infrastructure</b>.
+          </p>
+          <p class="has-text-centered" style="margin-top: 1.5rem;">
+            Despite recent progress in training Vision-Language-Action models (VLAs), deploying them across
+            different robots remains a major engineering challenge. Most robot code is highly specific to an
+            exact hardware setup &mdash; reproducing results on a different platform means rewriting the entire
+            control stack. VLAs cannot be deployed out-of-the-box on new embodiments, and existing cross-embodiment
+            datasets are aggregations of disjointed collection efforts across fragmented infrastructure.
+          </p>
+          <p class="has-text-centered" style="margin-top: 1rem;">
+            <b>RIO</b> (Robot I/O) is an open-source Python framework that provides flexible, lightweight components
+            for robot control, teleoperation, data formatting, sensor configuration, and policy deployment across
+            diverse hardware platforms and morphologies. Users can freely choose robots, sensors, teleoperation
+            interfaces, middlewares, data formats, and policies at every layer of the stack &mdash; and switch
+            between them with minimal reconfiguration. We validate RIO on VLA deployment workflows across three
+            morphologies (single-arm, bimanual, humanoid) and four hardware platforms, showcasing fine-tuned
+            rollouts of &pi;<sub>0.5</sub> and GR00T N1.5 on household tasks.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======== OVERVIEW FIGURE ======== -->
+  <img src="./static/images/overview.svg" alt="RIO Overview" width="60%" class="centered-img">
+
+
+  <!-- ======== 2. RIO ======== -->
+  <section class="section is-small" id="rio">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">RIO</h2>
+
+          <!-- Architecture description -->
+          <p style="margin-bottom: 1rem;">
+            RIO is built on a <b>node-middleware</b> architecture. Nodes for teleoperation interfaces, sensors,
+            robots, and policies are implemented from the same template, requiring minimal boilerplate. Each Node
+            dynamically inherits from a given Middleware that handles message passing. Factory functions produce
+            matched server-client Node pairs, supporting three execution patterns:
+            publish-only (<code>pub()</code>), request-only (<code>req()</code>), and
+            combined (<code>pubreq()</code>). Published data flows through <b>ring buffers</b> that continuously
+            stream state at a fixed frequency, while requests flow through <b>request queues</b> that enable
+            asynchronous command communication from multiple clients at arbitrary rates.
+          </p>
+          <p style="margin-bottom: 1rem;">
+            Because Nodes are middleware-agnostic, they can be paired with different backends depending on
+            deployment requirements. <b>Shared memory</b> enables zero-copy data exchange for high-throughput
+            local communication. <b>Zenoh</b> or <b>ZeroRpc</b> handle serialization and transport over TCP/IPC
+            for distributed multi-machine deployments. <b>Thread</b> middleware simplifies debugging by running
+            everything within a single process.
+          </p>
+
+          <!-- Design tenets -->
+          <p style="margin-bottom: 1.5rem;">
+            RIO is designed around five tenets:
+            <b>Flexible</b> &mdash; agnostic to components, no locked-in choices;
+            <b>Reusable</b> &mdash; lightweight building blocks that combine and modify quickly;
+            <b>Accessible</b> &mdash; Python-based, single config file, quick to install;
+            <b>Performant</b> &mdash; real-time control with asynchronous policy inference;
+            <b>Consistent</b> &mdash; scalable, reproducible data collection.
+          </p>
+        </div>
+      </div>
+
+      <!-- Framework Comparison Table -->
+      <h3 class="title is-4 has-text-centered">Framework Comparison</h3>
+      <div class="table-container" style="margin-bottom: 2.5rem;">
+        <table class="table is-bordered is-striped is-hoverable is-fullwidth" style="font-size: 0.9rem;">
+          <thead>
+            <tr>
+              <th>Framework</th>
+              <th>Humanoids</th>
+              <th>Bimanual</th>
+              <th>Single Arm</th>
+              <th>Grippers</th>
+              <th>Teleop</th>
+              <th>Cameras</th>
+              <th>Middleware(s)</th>
+              <th>Data Format(s)</th>
+              <th>Policies</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ark</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10008;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td>&#10008; : LCM</td>
+              <td>&#10008; : Pickle</td>
+              <td class="has-text-centered">&#10004;</td>
+            </tr>
+            <tr>
+              <td>LeRobot</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10008;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td>&#10008; : Threads/gRPC</td>
+              <td>&#10008; : LeRobotDataset</td>
+              <td class="has-text-centered">&#10004;</td>
+            </tr>
+            <tr>
+              <td>ManiUniCon</td>
+              <td class="has-text-centered">&#10008;</td>
+              <td class="has-text-centered">&#10008;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10008;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td>&#10008; : Shm</td>
+              <td>&#10008; : Zarr</td>
+              <td class="has-text-centered">&#10004;</td>
+            </tr>
+            <tr>
+              <td>PAPRLE</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td>&#10008; : ROS</td>
+              <td>&#10008; : Pickle</td>
+              <td class="has-text-centered">n/a</td>
+            </tr>
+            <tr>
+              <td>PyRobot</td>
+              <td class="has-text-centered">&#10008;</td>
+              <td class="has-text-centered">&#10008;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td>&#10008; : ROS</td>
+              <td>&#10008; : Pickle</td>
+              <td class="has-text-centered">n/a</td>
+            </tr>
+            <tr>
+              <td>RCS</td>
+              <td class="has-text-centered">&#10008;</td>
+              <td class="has-text-centered">&#10008;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td>&#10008; : RPC</td>
+              <td>&#10008; : Parquet</td>
+              <td class="has-text-centered">&#10004;</td>
+            </tr>
+            <tr>
+              <td>RoBits</td>
+              <td class="has-text-centered">&#10008;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td>&#10008; : ZMQ</td>
+              <td>&#10008; : NPZ/JSON</td>
+              <td class="has-text-centered">n/a</td>
+            </tr>
+            <tr>
+              <td>UMI, DP</td>
+              <td class="has-text-centered">&#10008;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10008;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td>&#10008; : Shm</td>
+              <td>&#10008; : Zarr</td>
+              <td>&#10008; : DP</td>
+            </tr>
+            <tr style="font-weight: bold; background-color: #f0f7ff;">
+              <td>RIO (ours)</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td class="has-text-centered">&#10004;</td>
+              <td>&#10004; : <b>any</b></td>
+              <td>&#10004; : <b>any</b></td>
+              <td class="has-text-centered">&#10004;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======== 2.1 SUPPORTED HARDWARE ======== -->
+  <section class="section is-small" id="hardware">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h3 class="title is-4 has-text-centered">Supported Hardware</h3>
+          <p class="has-text-centered" style="margin-bottom: 2rem;">
+            RIO provides flexibility across robot hardware, teleoperation interfaces, cameras, and middlewares.
+            These can be combined in any configuration depending on your requirements.
+          </p>
+
+          <div class="content">
+            <table class="table is-fullwidth">
+              <tbody>
+                <tr>
+                  <td><b>Humanoid Robots</b></td>
+                  <td>Unitree G1, Booster T1</td>
+                </tr>
+                <tr>
+                  <td><b>Robot Arms</b></td>
+                  <td>UFactory (xArm5/6/7, 850, Lite6), UR (UR5e, UR7e), Franka (FR3, Panda), Kinova (Gen3),
+                    SO-100/SO-101</td>
+                </tr>
+                <tr>
+                  <td><b>Robot Grippers</b></td>
+                  <td>UFactory, Franka, Robotiq (2F-85/2F-140), DH-Robotics (AG-105-145)</td>
+                </tr>
+                <tr>
+                  <td><b>Teleop Interfaces</b></td>
+                  <td>Spacemouse, Gamepad, Keyboard, VR (Apple Vision Pro, Meta Quest), Leader-Follower (GELLO), Phone
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Cameras</b></td>
+                  <td>RealSense, ZED, UVC (Webcams, USB), iPhone (Record3D)</td>
+                </tr>
+                <tr>
+                  <td><b>Middlewares</b></td>
+                  <td>Shared Memory, Thread, Portal, Zenoh, ZeroRpc</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======== 2.2 USING RIO ======== -->
+
+  <!-- Main Loop Code Example -->
+  <section class="section is-small has-background-black has-text-light" id="using">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h3 class="title is-4 has-text-light has-text-centered">A Minimal Main Loop</h3>
+          <p class="has-text-centered" style="margin-bottom: 1.5rem;">
+            RIO's API is designed for simplicity. A complete teleoperation loop fits in a few lines:
+          </p>
+          <pre class="code-block"><code>from rio import time
+from rio.envs.factory import make_env
+from rio.middleware import ServerManager
+
+# Factory function to create servers, clients, and environment
+servers, clients, env = make_env(cfg)
+
+# Start servers with the desired middleware
+with ServerManager(cfg.mw, list(servers.values())):
+    # Start clients
+    with env, clients["teleop"]() as teleop:
+
+        while True:
+            # Query client APIs, all non-blocking
+            cmd = teleop.poll()
+            action = env.build_action(cmd)
+            obs = env.step(action)
+            time.precise_wait()</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Robot Stations -->
+  <section class="section is-small">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h3 class="title is-4 has-text-centered">Robot Stations</h3>
+          <p class="has-text-centered" style="margin-bottom: 1.5rem;">
+            A composable dataclass configuration specifies the hardware topology for each station.
+            The same application logic operates over arbitrary station configurations without modification.
+          </p>
+        </div>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <img src="./static/images/stations.jpg" alt="Robot Station configurations" width="80%"
+            class="centered-img" style="margin-bottom: 1rem;">
+          <p class="has-text-centered is-size-7" style="color: #666;">
+            Example robot station configurations combining different hardware, sensors, and teleoperation interfaces.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Observation Schema -->
+  <section class="section is-small">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h3 class="title is-4 has-text-centered">Observation Schema</h3>
+          <p class="has-text-centered" style="margin-bottom: 1.5rem;">
+            Each robot morphology defines a dedicated observation structure extending a common base schema,
+            ensuring standardized data representation across platforms regardless of the underlying hardware.
+          </p>
+          <pre class="code-block"><code>@dataclass
+class Camera:
+    rgb: np.ndarray | None = None
+    depth: np.ndarray | None = None
+    meta: dict = field(default_factory=dict)
+
+@dataclass
+class Observation:
+    proprio: np.ndarray  # Defaults to policy action space
+    cameras: dict[str, Camera] = field(default_factory=dict)
+
+@dataclass
+class Step:
+    timestep: int | None
+    observation: Observation
+    instruction: str | None
+    action: np.ndarray | None
+    meta: dict | None = field(default_factory=dict)</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======== 3. RESULTS ======== -->
+  <section class="section is-small" id="results">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Results</h2>
+          <p class="has-text-centered" style="margin-bottom: 1.5rem;">
+            We deploy state-of-the-art VLAs (&pi;<sub>0.5</sub>, GR00T N1.5) across 3 morphologies
+            and 4 hardware platforms, achieving &ge;60% success on all tasks with just 50 teleoperated demonstrations.
+          </p>
+        </div>
+      </div>
+
+      <!-- ======== 3.1 POLICY RESULTS ======== -->
+
+      <!-- VLA Videos -->
+      <h3 class="title is-4 has-text-centered" id="policy-results">VLAs (&pi;<sub>0.5</sub> &amp; GROOT)</h3>
+      <div class="has-text-centered" style="margin-bottom: 2rem;">
+        <div class="task-video">
+          <div>xArm7 &mdash; Fold Shirt</div>
+          <video width="100%" autoplay loop muted playsinline preload="none">
+            <source src="./static/videos/policy/pi/pi0_fold.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="task-video">
+          <div>xArm7 &mdash; Pick &amp; Place</div>
+          <video width="100%" autoplay loop muted playsinline preload="none">
+            <source src="./static/videos/policy/pi/pi0_xarm_pnp.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="task-video">
+          <div>SO-100 &mdash; Scrub Bowl</div>
+          <video width="100%" autoplay loop muted playsinline preload="none">
+            <source src="./static/videos/policy/pi/pi_scrub.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="task-video">
+          <div>Humanoid &mdash; GROOT</div>
+          <video width="100%" autoplay loop muted playsinline preload="none">
+            <source src="./static/videos/policy/groot/groot_humanoid.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <!-- Diffusion Policy Videos -->
+      <h3 class="title is-4 has-text-centered">Diffusion Policy</h3>
+      <div class="has-text-centered" style="margin-bottom: 2rem;">
+        <div class="task-video">
+          <div>xArm7 &mdash; Ball Push</div>
+          <video width="100%" autoplay loop muted playsinline preload="none">
+            <source src="./static/videos/policy/dp/dp_xarm_ball.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="task-video">
+          <div>xArm7 &mdash; Manipulation</div>
+          <video width="100%" autoplay loop muted playsinline preload="none">
+            <source src="./static/videos/policy/dp/dp_xarm.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <!-- RL Videos -->
+      <h3 class="title is-4 has-text-centered">RL Navigation (PPO)</h3>
+      <div class="has-text-centered" style="margin-bottom: 2rem;">
+        <div class="task-video">
+          <div>Unitree G1 &mdash; Walk</div>
+          <video width="100%" autoplay loop muted playsinline preload="none">
+            <source src="./static/videos/policy/rl/rl_walk_g1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="task-video">
+          <div>Booster T1 &mdash; Walk</div>
+          <video width="100%" autoplay loop muted playsinline preload="none">
+            <source src="./static/videos/policy/rl/rl_walk.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <!-- Policy Results Table -->
+      <h3 class="title is-4 has-text-centered">Policy Deployment</h3>
+      <div class="table-container" style="margin-bottom: 2.5rem;">
+        <table class="table is-bordered is-striped is-hoverable is-fullwidth">
+          <thead>
+            <tr>
+              <th>Robot</th>
+              <th>Policy</th>
+              <th>Task</th>
+              <th>Success Rate</th>
+              <th>Task Time (s)</th>
+              <th>Demo Time (s)</th>
+              <th>GPU Util (%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>xArm7</td>
+              <td>BC &pi;<sub>0.5</sub></td>
+              <td>Fold Shirt</td>
+              <td><b>92.5%</b></td>
+              <td>41.96 &pm; 14.58</td>
+              <td>41.57 &pm; 9.25</td>
+              <td>56.7 &pm; 1.7</td>
+            </tr>
+            <tr>
+              <td>xArm7</td>
+              <td>BC &pi;<sub>0.5</sub></td>
+              <td>Place Can</td>
+              <td><b>95.0%</b></td>
+              <td>16.08 &pm; 3.41</td>
+              <td>14.46 &pm; 2.00</td>
+              <td>54.6 &pm; 3.1</td>
+            </tr>
+            <tr>
+              <td>SO-100</td>
+              <td>BC &pi;<sub>0.5</sub></td>
+              <td>Fold Cloth</td>
+              <td><b>60.0%</b></td>
+              <td>27.50 &pm; 5.51</td>
+              <td>22.43 &pm; 3.30</td>
+              <td>46.3 &pm; 10.0</td>
+            </tr>
+            <tr>
+              <td>SO-100</td>
+              <td>BC &pi;<sub>0.5</sub></td>
+              <td>Scrub Bowl</td>
+              <td><b>64.0%</b></td>
+              <td>40.33 &pm; 13.68</td>
+              <td>27.66 &pm; 5.22</td>
+              <td>52.0 &pm; 4.8</td>
+            </tr>
+            <tr>
+              <td>Unitree G1</td>
+              <td>BC GR00T N1.5</td>
+              <td>Pick Box</td>
+              <td><b>95.0%</b></td>
+              <td>9.07 &pm; 6.10</td>
+              <td>10.38 &pm; 4.04</td>
+              <td>61.7 &pm; 4.7</td>
+            </tr>
+            <tr>
+              <td>Unitree G1</td>
+              <td>RL PPO</td>
+              <td>Navigate</td>
+              <td><b>100%</b></td>
+              <td>31.27 &pm; 6.56</td>
+              <td>n/a</td>
+              <td>5.1 &pm; 0.1</td>
+            </tr>
+            <tr>
+              <td>Booster T1</td>
+              <td>RL PPO</td>
+              <td>Navigate</td>
+              <td><b>100%</b></td>
+              <td>29.73 &pm; 4.49</td>
+              <td>n/a</td>
+              <td>5.3 &pm; 0.2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======== 3.2 SYSTEM PROFILING ======== -->
+  <section class="section is-small has-background-black has-text-light" id="profiling">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h3 class="title is-4 has-text-centered has-text-light">System Profiling</h3>
+          <p class="has-text-centered" style="margin-bottom: 2rem;">
+            RIO achieves <b>over 3&times; lower end-to-end latency</b> than LeRobot for &pi;<sub>0.5</sub> inference,
+            with sub-millisecond middleware round-trip times using Zenoh and shared memory.
+          </p>
+        </div>
+      </div>
+
+      <!-- Obs-Act Latency Comparison -->
+      <h3 class="title is-5 has-text-centered has-text-light">RIO vs. LeRobot Latency</h3>
+      <img src="./static/images/obs-act-latency.png" alt="Observation-Action latency comparison" width="100%"
+        class="centered-img" style="margin-bottom: 1rem;">
+
+      <div class="columns is-centered" style="margin-bottom: 2rem;">
+        <div class="column is-four-fifths">
+          <div class="table-container">
+            <table class="table is-bordered is-hoverable is-fullwidth" style="font-size: 0.9rem; color: #222;">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Obs-Action (ms)</th>
+                  <th>Policy Inference (ms)</th>
+                  <th>Obs Fetching (ms)</th>
+                  <th>Framework Overhead (ms)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>LeRobot</td>
+                  <td>586.67 &pm; 7.88</td>
+                  <td>286.30 &pm; 0.36</td>
+                  <td>190.62 &pm; 5.01</td>
+                  <td>109.74 &pm; 9.35</td>
+                </tr>
+                <tr style="font-weight: bold;">
+                  <td>RIO (Ours)</td>
+                  <td>144.16 &pm; 19.71</td>
+                  <td>91.60 &pm; 3.21</td>
+                  <td>20.62 &pm; 9.70</td>
+                  <td>31.95 &pm; 22.20</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Middleware Latency -->
+      <h3 class="title is-5 has-text-centered has-text-light">Middleware Round-Trip Latency</h3>
+      <div class="columns is-centered" style="margin-bottom: 2rem;">
+        <div class="column is-half">
+          <div class="table-container">
+            <table class="table is-bordered is-hoverable is-fullwidth" style="font-size: 0.9rem; color: #222;">
+              <thead>
+                <tr>
+                  <th>Middleware</th>
+                  <th>Latency (ms)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Zenoh</td>
+                  <td><b>0.12 &pm; 0.11</b></td>
+                </tr>
+                <tr>
+                  <td>Shared Memory</td>
+                  <td><b>0.15 &pm; 0.01</b></td>
+                </tr>
+                <tr>
+                  <td>Thread</td>
+                  <td>5.07 &pm; 0.03</td>
+                </tr>
+                <tr>
+                  <td>ZeroRpc</td>
+                  <td>10.32 &pm; 5.17</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="has-text-centered is-size-7" style="color: #bbb;">
+            Mean &pm; stddev over 1,000 passes with 2048-byte payload.
+          </p>
+        </div>
+      </div>
+
+      <!-- Node Profiling -->
+      <h3 class="title is-5 has-text-centered has-text-light">Node Profiling During Policy Deployment</h3>
+      <img src="./static/images/latency.png" alt="Node profiling timeline" width="100%"
+        class="centered-img" style="margin-bottom: 1rem;">
+      <p class="has-text-centered is-size-7" style="color: #bbb;">
+        Timeline of &pi;<sub>0.5</sub> rollout on xArm7 with 3 RealSense cameras at 60Hz.
+        The main loop remains non-blocking; asynchronous inference (~92ms) allows continuous control.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ======== GET STARTED ======== -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <div class="box pt-6 pb-6 has-text-centered">
+            <h2 class="title is-3">Get Started with RIO</h2>
+            <p style="margin-bottom: 1.5rem;">
+              RIO is designed to be quick to install and easy to use.
+              Check out the repository to get started.
+            </p>
+            <a href="https://github.com/robot-i-o/rio" class="rio-button">
+              <svg aria-hidden="true" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                stroke-width="1.6" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path
+                  d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
+                </path>
+              </svg>
+              View on GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======== TEAM ======== -->
+  <section class="section is-small" id="team">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Team</h2>
+
+      <div class="publication-authors has-text-centered is-size-5" style="line-height: 2.2;">
+        <span class="author-block">Pablo Ortega-Kral<sup>*,1</sup>,</span>
+        <span class="author-block">Eliot Xing<sup>*,1</sup>,</span>
+        <span class="author-block">Arthur Fender Coelho Bucker<sup>1</sup>,</span>
+        <span class="author-block">Vernon Luk<sup>1</sup>,</span>
+        <span class="author-block">Jason Kim<sup>2</sup>,</span>
+        <span class="author-block">Owen Kwon<sup>1</sup>,</span>
+        <span class="author-block">Angchen Xie<sup>1</sup>,</span>
+        <span class="author-block">Nikhil Sobanbabu<sup>1</sup>,</span>
+        <span class="author-block">Yifu Yuan<sup>1</sup>,</span>
+        <span class="author-block">Megan Lee<sup>1</sup>,</span>
+        <span class="author-block">Deepam Ameria<sup>1</sup>,</span>
+        <span class="author-block">Bhaswanth Ayapilla<sup>1</sup>,</span>
+        <span class="author-block">Jaycie Bussell<sup>3</sup>,</span>
+        <span class="author-block">Guanya Shi<sup>1</sup>,</span>
+        <span class="author-block">Jonathan Francis<sup>3</sup>,</span>
+        <span class="author-block">Jean Oh<sup>&dagger;,1,4</sup></span>
+      </div>
+
+      <div class="publication-authors has-text-centered" style="margin-top: 0.75rem;">
+        <span class="author-block"><sup>1</sup>Carnegie Mellon University,&ensp;</span>
+        <span class="author-block"><sup>2</sup>Delft University of Technology,&ensp;</span>
+        <span class="author-block"><sup>3</sup>Bosch Center for AI,&ensp;</span>
+        <span class="author-block"><sup>4</sup>Lavoro AI Research</span>
+      </div>
+      <div class="publication-authors has-text-centered is-size-7" style="margin-top: 0.3rem; color: #888;">
+        <span class="author-block"><sup>*</sup>Equal contribution&ensp;</span>
+        <span class="author-block"><sup>&dagger;</sup>Corresponding author</span>
+      </div>
+
+      <!-- BibTeX -->
+      <div class="columns is-centered" style="margin-top: 2.5rem;">
+        <div class="column is-four-fifths">
+          <h3 class="title is-4">BibTeX</h3>
+          <div style="position: relative;">
+            <button onclick="copyBibtex()" id="copy-btn" class="rio-button rio-button--dark"
+              style="position: absolute; top: 0.75rem; right: 0.75rem; z-index: 1;">
+              <i class="fas fa-copy"></i> Copy
+            </button>
+            <pre class="code-block" id="bibtex-content" style="white-space: pre-wrap; word-wrap: break-word;">@article{ortegakral2026rio,
+  title={{RIO}: Flexible Real-time Robot {I/O} for Cross-Embodiment Robot Learning},
+  author={Pablo Ortega-Kral and Eliot Xing and Arthur Fender Coelho Bucker and Vernon Luk and Jason Kim and Owen Kwon and Angchen Xie and Nikhil Sobanbabu and Yifu Yuan and Megan Lee and Deepam Ameria and Bhaswanth Ayapilla and Jaycie Bussell and Guanya Shi and Jonathan Francis and Jean Oh},
+  journal={arXiv preprint arXiv:2506.XXXXX},
+  year={2025},
+}</pre>
+          </div>
+          <script>
+            function copyBibtex() {
+              var text = document.getElementById('bibtex-content').textContent;
+              navigator.clipboard.writeText(text).then(function () {
+                var btn = document.getElementById('copy-btn');
+                btn.innerHTML = '<span class="icon is-small" style="margin-right: 0.25rem;"><i class="fas fa-check"></i></span>Copied!';
+                setTimeout(function () {
+                  btn.innerHTML = '<span class="icon is-small" style="margin-right: 0.25rem;"><i class="fas fa-copy"></i></span>Copy';
+                }, 2000);
+              });
+            }
+          </script>
+        </div>
+  </section>
+
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              Website template modified from
+              <a href="https://nerfies.github.io/">NeRFies</a> and
+              <a href="https://umi-on-legs.github.io/">UMI on Legs</a>.
+            </p>
+            <p>
+              This website is licensed under a
+              <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons
+                Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
