@@ -34,30 +34,6 @@
     </div>
     <div class="overlay"></div>
 
-    <!-- Navbar -->
-    <div class="hero-head is-hidden-mobile">
-      <header class="navbar">
-        <div class="container is-size-5">
-          <div class="navbar-menu">
-            <div class="navbar-end">
-              <a class="navbar-item pl-4 pr-4" href="https://github.com/robot-i-o/rio">
-                <span class="icon" style="margin-right:5px;">
-                  <svg aria-hidden="true" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                    stroke-width="1.6" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                    <path
-                      d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
-                    </path>
-                  </svg>
-                </span>
-                <span>Code (Coming Soon)</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </header>
-    </div>
-
     <!-- Hero body -->
     <div class="hero-body">
       <div class="container has-text-centered">
@@ -68,8 +44,8 @@
           Flexible Real-time Robot I/O for<br class="is-hidden-mobile"> Cross-Embodiment Robot Learning
         </h1>
 
-        <!-- Mobile links -->
-        <div class="is-hidden-tablet" style="margin-top: 1.5rem;">
+        <!-- Hero action buttons -->
+        <div class="buttons is-centered" style="margin-top: 2rem; gap: 1rem;">
           <a href="https://github.com/robot-i-o/rio" class="rio-button">
             <svg aria-hidden="true" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
               stroke-width="1.6" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -78,7 +54,15 @@
                 d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
               </path>
             </svg>
-            Code
+            Code (Coming Soon)
+          </a>
+          <a href="#" class="rio-button">
+            <i class="fas fa-file-lines"></i>
+            Paper (Coming Soon)
+          </a>
+          <a href="#" class="rio-button">
+            <i class="fas fa-book"></i>
+            Docs (Coming Soon)
           </a>
         </div>
       </div>
@@ -405,8 +389,8 @@ with ServerManager(cfg.mw, list(servers.values())):
       </div>
       <div class="columns is-centered">
         <div class="column is-four-fifths">
-          <img src="./static/images/stations.jpg" alt="Robot Station configurations" width="80%"
-            class="centered-img" style="margin-bottom: 1rem;">
+          <img src="./static/images/stations.jpg" alt="Robot Station configurations" width="80%" class="centered-img"
+            style="margin-bottom: 1rem;">
           <p class="has-text-centered is-size-7" style="color: #666;">
             Example robot station configurations combining different hardware, sensors, and teleoperation interfaces.
           </p>
@@ -706,8 +690,8 @@ class Step:
 
       <!-- Node Profiling -->
       <h3 class="title is-5 has-text-centered has-text-light">Node Profiling During Policy Deployment</h3>
-      <img src="./static/images/latency.png" alt="Node profiling timeline" width="100%"
-        class="centered-img" style="margin-bottom: 1rem;">
+      <img src="./static/images/latency.png" alt="Node profiling timeline" width="100%" class="centered-img"
+        style="margin-bottom: 1rem;">
       <p class="has-text-centered is-size-7" style="color: #bbb;">
         Timeline of &pi;<sub>0.5</sub> rollout on xArm7 with 3 RealSense cameras at 60Hz.
         The main loop remains non-blocking; asynchronous inference (~92ms) allows continuous control.
@@ -814,20 +798,18 @@ class Step:
   <!-- ======== FOOTER ======== -->
   <footer class="footer">
     <div class="container">
-      <div class="columns is-centered">
-        <div class="column is-8">
-          <div class="content">
-            <p>
-              Website template modified from
-              <a href="https://nerfies.github.io/">NeRFies</a> and
-              <a href="https://umi-on-legs.github.io/">UMI on Legs</a>.
-            </p>
-            <p>
-              This website is licensed under a
-              <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons
-                Attribution-ShareAlike 4.0 International License</a>.
-            </p>
-          </div>
+      <div class="columns is-vcentered is-centered is-mobile is-multiline footer-logos">
+        <div class="column is-narrow has-text-centered">
+          <img src="./static/logos/CMU.jpg" alt="Carnegie Mellon University">
+        </div>
+        <div class="column is-narrow has-text-centered">
+          <img src="./static/logos/tudelft.png" alt="TU Delft">
+        </div>
+        <div class="column is-narrow has-text-centered">
+          <img src="./static/logos/bosch.png" alt="Bosch Center for AI">
+        </div>
+        <div class="column is-narrow has-text-centered">
+          <img src="./static/logos/logo-silver.png" alt="Lavoro AI Research">
         </div>
       </div>
     </div>
