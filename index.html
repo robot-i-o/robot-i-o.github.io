@@ -26,8 +26,8 @@
 <body>
 
   <!-- ======== HERO ======== -->
-  <section class="hero is-link is-fullheight video" style="overflow: hidden; position:relative;">
-    <div class="hero-video" style="height: 100%; width: 177.77777778vh; min-width: 100%; min-height: 56.25vw;">
+  <section class="hero is-link is-fullheight video" style="overflow: hidden; position:relative; background-color: #347FC4;">
+    <div class="hero-video is-hidden-mobile" style="height: 100%; width: 177.77777778vh; min-width: 100%; min-height: 56.25vw;">
       <video playsinline autoplay muted loop>
         <source src="./static/videos/overview.mp4" type="video/mp4">
       </video>
@@ -37,11 +37,17 @@
     <!-- Hero body -->
     <div class="hero-body">
       <div class="container has-text-centered">
-        <h1 class="title is-1 publication-title is-size-1-mobile" style="font-size: 12rem; color: white;">
+        <h1 class="title is-1 publication-title is-hidden-mobile" style="font-size: 12rem; color: white;">
           RIO
         </h1>
-        <h1 class="subtitle is-2 publication-title is-size-4-mobile" style="font-size: 2.5rem; color: white;">
-          Flexible Real-time Robot I/O for<br class="is-hidden-mobile"> Cross-Embodiment Robot Learning
+        <h1 class="title is-1 publication-title is-hidden-tablet" style="font-size: 5rem; color: white;">
+          RIO
+        </h1>
+        <h1 class="subtitle is-2 publication-title is-hidden-mobile" style="font-size: 2.5rem; color: white;">
+          Flexible Real-time Robot I/O for<br> Cross-Embodiment Robot Learning
+        </h1>
+        <h1 class="subtitle is-2 publication-title is-hidden-tablet" style="font-size: 1.25rem; color: white;">
+          Flexible Real-time Robot I/O for Cross-Embodiment Robot Learning
         </h1>
 
         <!-- Hero action buttons -->
@@ -155,6 +161,50 @@
             <b>Performant</b> &mdash; real-time control with asynchronous policy inference;
             <b>Consistent</b> &mdash; scalable, reproducible data collection.
           </p>
+        </div>
+      </div>
+
+      <!-- Supported Hardware -->
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h3 class="title is-4 has-text-centered">Supported Hardware</h3>
+          <p class="has-text-centered" style="margin-bottom: 2rem;">
+            RIO provides flexibility across robot hardware, teleoperation interfaces, cameras, and middlewares.
+            These can be combined in any configuration depending on your requirements.
+          </p>
+
+          <div class="content">
+            <table class="table is-fullwidth">
+              <tbody>
+                <tr>
+                  <td><b>Humanoid Robots</b></td>
+                  <td>Unitree G1, Booster T1</td>
+                </tr>
+                <tr>
+                  <td><b>Robot Arms</b></td>
+                  <td>UFactory (xArm5/6/7, 850, Lite6), UR (UR5e, UR7e), Franka (FR3, Panda), Kinova (Gen3),
+                    SO-100/SO-101</td>
+                </tr>
+                <tr>
+                  <td><b>Robot Grippers</b></td>
+                  <td>UFactory, Franka, Robotiq (2F-85/2F-140), DH-Robotics (AG-105-145)</td>
+                </tr>
+                <tr>
+                  <td><b>Teleop Interfaces</b></td>
+                  <td>Spacemouse, Gamepad, Keyboard, VR (Apple Vision Pro, Meta Quest), Leader-Follower (GELLO), Phone
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Cameras</b></td>
+                  <td>RealSense, ZED, UVC (Webcams, USB), iPhone (Record3D)</td>
+                </tr>
+                <tr>
+                  <td><b>Middlewares</b></td>
+                  <td>Shared Memory, Thread, Portal, Zenoh, ZeroRpc</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
@@ -287,55 +337,6 @@
             </tr>
           </tbody>
         </table>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ======== 2.1 SUPPORTED HARDWARE ======== -->
-  <section class="section is-small" id="hardware">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column is-four-fifths">
-          <h3 class="title is-4 has-text-centered">Supported Hardware</h3>
-          <p class="has-text-centered" style="margin-bottom: 2rem;">
-            RIO provides flexibility across robot hardware, teleoperation interfaces, cameras, and middlewares.
-            These can be combined in any configuration depending on your requirements.
-          </p>
-
-          <div class="content">
-            <table class="table is-fullwidth">
-              <tbody>
-                <tr>
-                  <td><b>Humanoid Robots</b></td>
-                  <td>Unitree G1, Booster T1</td>
-                </tr>
-                <tr>
-                  <td><b>Robot Arms</b></td>
-                  <td>UFactory (xArm5/6/7, 850, Lite6), UR (UR5e, UR7e), Franka (FR3, Panda), Kinova (Gen3),
-                    SO-100/SO-101</td>
-                </tr>
-                <tr>
-                  <td><b>Robot Grippers</b></td>
-                  <td>UFactory, Franka, Robotiq (2F-85/2F-140), DH-Robotics (AG-105-145)</td>
-                </tr>
-                <tr>
-                  <td><b>Teleop Interfaces</b></td>
-                  <td>Spacemouse, Gamepad, Keyboard, VR (Apple Vision Pro, Meta Quest), Leader-Follower (GELLO), Phone
-                  </td>
-                </tr>
-                <tr>
-                  <td><b>Cameras</b></td>
-                  <td>RealSense, ZED, UVC (Webcams, USB), iPhone (Record3D)</td>
-                </tr>
-                <tr>
-                  <td><b>Middlewares</b></td>
-                  <td>Shared Memory, Thread, Portal, Zenoh, ZeroRpc</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -605,48 +606,34 @@ class Step:
         <div class="column is-four-fifths">
           <h3 class="title is-4 has-text-centered has-text-light">System Profiling</h3>
           <p class="has-text-centered" style="margin-bottom: 2rem;">
-            RIO achieves <b>over 3&times; lower end-to-end latency</b> than LeRobot for &pi;<sub>0.5</sub> inference,
-            with sub-millisecond middleware round-trip times using Zenoh and shared memory.
+            RIO reaches <b>130.3 ms</b> end-to-end observation-to-action latency versus
+            <b>581.2 ms</b> for LeRobot &mdash; <b>4.46&times; lower</b> for &pi;<sub>0.5</sub>
+            inference &mdash; with sub-millisecond middleware round-trip times using Zenoh
+            and shared memory.
           </p>
         </div>
       </div>
 
       <!-- Obs-Act Latency Comparison -->
       <h3 class="title is-5 has-text-centered has-text-light">RIO vs. LeRobot Latency</h3>
-      <img src="./static/images/obs-act-latency.png" alt="Observation-Action latency comparison" width="100%"
-        class="centered-img" style="margin-bottom: 1rem;">
+      <img src="./static/images/lerobot-latency-comparison.png"
+        alt="Observation-Action latency: RIO 130.3 ms vs LeRobot 581.2 ms" width="100%" class="centered-img"
+        style="margin-bottom: 1rem;">
 
-      <div class="columns is-centered" style="margin-bottom: 2rem;">
+
+      <div class="columns is-centered">
         <div class="column is-four-fifths">
-          <div class="table-container">
-            <table class="table is-bordered is-hoverable is-fullwidth" style="font-size: 0.9rem; color: #222;">
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>Obs-Action (ms)</th>
-                  <th>Policy Inference (ms)</th>
-                  <th>Obs Fetching (ms)</th>
-                  <th>Framework Overhead (ms)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>LeRobot</td>
-                  <td>586.67 &pm; 7.88</td>
-                  <td>286.30 &pm; 0.36</td>
-                  <td>190.62 &pm; 5.01</td>
-                  <td>109.74 &pm; 9.35</td>
-                </tr>
-                <tr style="font-weight: bold;">
-                  <td>RIO (Ours)</td>
-                  <td>144.16 &pm; 19.71</td>
-                  <td>91.60 &pm; 3.21</td>
-                  <td>20.62 &pm; 9.70</td>
-                  <td>31.95 &pm; 22.20</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <p class="has-text-centered is-size-6" style="color: #ddd;">
+            We profile end-to-end observation-to-action latency during &pi;<sub>0.5</sub> rollouts with an
+            SO-100 in the loop, using three Intel RealSense cameras (two D415s and one D405) at
+            640&times;480 resolution. Under identical hardware, RIO reaches <b>130.3 ms</b> versus
+            <b>581.2 ms</b> for LeRobot &mdash; a <b>4.46&times;</b> reduction. The gain stems from
+            RIO's streamlined architecture: whereas LeRobot threads observations before transmitting
+            them over the network to an asynchronous policy server, RIO leverages the middleware
+            directly for asynchronous inference, cutting both observation fetching and framework
+            overhead. Lower pipeline latency translates to a higher effective control frequency,
+            which is critical for dynamic, contact-rich tasks such as ball throwing and tortilla flipping.
+          </p>
         </div>
       </div>
 
@@ -665,25 +652,30 @@ class Step:
               <tbody>
                 <tr>
                   <td>Zenoh</td>
-                  <td><b>0.12 &pm; 0.11</b></td>
+                  <td><b>0.43 &pm; 0.13</b></td>
                 </tr>
                 <tr>
                   <td>Shared Memory</td>
-                  <td><b>0.15 &pm; 0.01</b></td>
+                  <td><b>0.54 &pm; 0.62</b></td>
                 </tr>
                 <tr>
                   <td>Thread</td>
-                  <td>5.07 &pm; 0.03</td>
+                  <td>0.99 &pm; 0.30</td>
                 </tr>
                 <tr>
                   <td>ZeroRpc</td>
-                  <td>10.32 &pm; 5.17</td>
+                  <td>1.05 &pm; 0.17</td>
+                </tr>
+                <tr>
+                  <td>Portal</td>
+                  <td>1.97 &pm; 0.34</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <p class="has-text-centered is-size-7" style="color: #bbb;">
-            Mean &pm; stddev over 1,000 passes with 2048-byte payload.
+            Half of median round-trip time (1st/99th percentiles trimmed, per Open Messaging Benchmark),
+            over 1,000 passes with a 2048-byte payload.
           </p>
         </div>
       </div>
@@ -693,8 +685,10 @@ class Step:
       <img src="./static/images/latency.png" alt="Node profiling timeline" width="100%" class="centered-img"
         style="margin-bottom: 1rem;">
       <p class="has-text-centered is-size-7" style="color: #bbb;">
-        Timeline of &pi;<sub>0.5</sub> rollout on xArm7 with 3 RealSense cameras at 60Hz.
-        The main loop remains non-blocking; asynchronous inference (~92ms) allows continuous control.
+        Timeline of &pi;<sub>0.5</sub> rollout on xArm7 with three RealSense cameras
+        (two D415s, one D405) at 640&times;480.
+        The main loop remains non-blocking; asynchronous inference (~85.8 ms forward pass)
+        allows continuous control.
       </p>
     </div>
   </section>
@@ -764,6 +758,7 @@ class Step:
       </div>
 
       <!-- BibTeX -->
+      <!--
       <div class="columns is-centered" style="margin-top: 2.5rem;">
         <div class="column is-four-fifths">
           <h3 class="title is-4">BibTeX</h3>
@@ -792,6 +787,7 @@ class Step:
             }
           </script>
         </div>
+      -->
   </section>
 
 
