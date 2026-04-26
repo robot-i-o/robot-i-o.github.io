@@ -181,6 +181,12 @@ body {
   text-align: center;
 }
 
+.task-video video {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
 /* Centered images */
 .centered-img {
   display: block;
